@@ -1,22 +1,23 @@
-import Head from "next/head";
 import Link from "next/link";
 import styles from "./layout.module.scss";
-import { title } from "@/profile";
+import { Head } from "@/components/Head";
+import { title as blogTitle } from "@/profile";
 
-export const Layout = ({
-  children,
-}: {
+type Props = {
+  title?: string;
   children: React.ReactNode;
-}): JSX.Element => (
+};
+
+export const Layout = ({ title, children }: Props): JSX.Element => (
   <div>
-    <Head>
-      <title>{title}</title>
-      {/* <link rel="icon" href="/favicon.ico" /> */}
-    </Head>
+    <Head title={title ? `${title} | ${blogTitle}` : blogTitle} />
     <header>
-      <div className={styles.headerTitle}>{title}</div>
+      <div className={styles.headerTitle}>
+        <Link href="/">{blogTitle}</Link>
+      </div>
     </header>
     <main>{children}</main>
     <footer></footer>
+    <script src="/prism.js" async></script>
   </div>
 );
