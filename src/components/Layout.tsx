@@ -13,7 +13,9 @@ export const Layout = ({ title, children }: Props): JSX.Element => (
     <Head title={title ? `${title} | ${blogTitle}` : blogTitle} />
     <header>
       <div className={styles.headerTitle}>
-        <Link href="/">{blogTitle}</Link>
+        <Link href="/">
+          <a>{blogTitle}</a>
+        </Link>
       </div>
     </header>
     <main>{children}</main>
