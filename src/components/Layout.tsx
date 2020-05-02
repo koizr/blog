@@ -20,6 +20,5 @@ export const Layout = ({ title, children }: Props): JSX.Element => (
     </header>
     <main>{children}</main>
     <footer></footer>
-    <script src="/prism.js" async></script>
   </div>
 );

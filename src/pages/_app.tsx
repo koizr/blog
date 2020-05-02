@@ -1,3 +1,4 @@
+import "highlight.js/styles/solarized-light.css";
 import "normalize.css";
 import "@/styles/global.scss";
 import { AppProps } from "next/app";

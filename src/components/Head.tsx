@@ -9,6 +9,5 @@ export const Head = ({ title }: { title: string }): JSX.Element => (
     ></meta>
     <title>{title}</title>
     {/* <link rel="icon" href="/favicon.ico" /> */}
-    <link rel="stylesheet" href="/prism.css" />
   </NextHead>
 );

@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import remark from "remark";
-import html from "remark-html";
+import MarkdownIt from "markdown-it";
+import hl from "highlight.js";
 import { StaticPaths } from "@/types";
 
 /**
@@ -97,10 +97,22 @@ export const getPostData = async (id: string): Promise<Post> => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = new MarkdownIt({
+    highlight: (codeBlock, lang): string => {
+      if (lang && hl.getLanguage(lang)) {
+        try {
+          return `<pre class="hljs"><code class="language-${lang}">${
+            hl.highlight(lang, codeBlock, true).value
+          }</code></pre>`;
+        } catch (_) {
+          // do nothing
+        }
+      }
+      return `<pre class="hljs"><code>${new MarkdownIt().utils.escapeHtml(
+        codeBlock
+      )}</code></pre>`;
+    },
+  }).render(matterResult.content);
   const matterData = matterResult.data as FrontMatter;
   return {
     id,
