@@ -9,16 +9,24 @@ type Props = {
 };
 
 export const Layout = ({ title, children }: Props): JSX.Element => (
-  <div>
+  <div className={styles.page}>
     <Head title={title ? `${title} | ${blogTitle}` : blogTitle} />
-    <header>
-      <div className={styles.headerTitle}>
+    <header className={styles.header}>
+      <div className={styles.blogTitle}>
         <Link href="/">
-          <a>{blogTitle}</a>
+          <a className={styles.blogTitleText}>{blogTitle}</a>
         </Link>
       </div>
     </header>
-    <main>{children}</main>
-    <footer></footer>
+    <main className={styles.content}>{children}</main>
+    <footer className={styles.footer}>
+      <div className={styles.footerLeft}>&copy;2020 koizr</div>
+      <div className={styles.footerRight}>
+        <span>Powered by </span>
+        <a href="https://nextjs.org/">Next.js</a>
+        <span>&nbsp;&amp;&nbsp;</span>
+        <a href="https://vercel.com/">Vercel</a>
+      </div>
+    </footer>
   </div>
 );

@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { Layout } from "@/components/Layout";
-import { title } from "@/profile";
 import { getSortedPostsData, PostSummary } from "@/posts";
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
 export default function Home({ allPostsData }: Props): JSX.Element {
   return (
     <Layout>
-      <h1>{title}</h1>
+      <h1>Blog</h1>
       <ul>
         {allPostsData.map(({ id, title, date, tags }) => (
           <li key={id}>

@@ -7,6 +7,7 @@ export const Head = ({ title }: { title: string }): JSX.Element => (
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     ></meta>
+    <meta name="theme-color" content="#ffb300"></meta>
     <title>{title}</title>
     {/* <link rel="icon" href="/favicon.ico" /> */}
   </NextHead>

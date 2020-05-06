@@ -1,2 +1,64 @@
-.headerTitle {
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    background-color: #ffb300;
+    .blogTitle {
+        margin-left: 3rem;
+        .blogTitleText {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #333333;
+            font-family: BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+                Helvetica Neue, serif;
+        }
+    }
+}
+
+.content {
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 559px) {
+    .content {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .content {
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    background-color: #fffaed;
+    margin-top: auto;
+    .footerLeft {
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        left: 3rem;
+        bottom: 0;
+        margin: auto;
+    }
+    .footerRight {
+        height: 1rem;
+        position: absolute;
+        top: 0;
+        right: 3rem;
+        bottom: 0;
+        margin: auto;
+    }
 }
