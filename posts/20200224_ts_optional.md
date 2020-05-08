@@ -2,6 +2,7 @@
 title: TypeScript の戻り値を nullable にする
 date: "2020-02-24"
 tags: TypeScript
+description: TypeScript で戻り値の型を nullable にする際のプラクティス
 ---
 ## プロパティ、引数は `?` で簡単に存在しないかもしれない値にできる
 

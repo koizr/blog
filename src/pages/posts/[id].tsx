@@ -15,7 +15,7 @@ export default function Post({
   postData: PostContent;
 }): JSX.Element {
   return (
-    <Layout title={postData.title}>
+    <Layout title={postData.title} description={postData.description}>
       <article className={styles.post}>
         <h1 className={styles.title}>{postData.title}</h1>
         <div>

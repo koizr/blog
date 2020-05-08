@@ -1,16 +1,24 @@
 import Link from "next/link";
 import styles from "./layout.module.scss";
 import { Head } from "@/components/Head";
-import { title as blogTitle } from "@/profile";
+import { title as blogTitle, description as blogDescription } from "@/profile";
 
 type Props = {
   title?: string;
+  description?: string;
   children: React.ReactNode;
 };
 
-export const Layout = ({ title, children }: Props): JSX.Element => (
+export const Layout = ({
+  title,
+  description,
+  children,
+}: Props): JSX.Element => (
   <div className={styles.page}>
-    <Head title={title ? `${title} | ${blogTitle}` : blogTitle} />
+    <Head
+      title={title ? `${title} | ${blogTitle}` : blogTitle}
+      description={description ?? blogDescription}
+    />
     <header className={styles.header}>
       <div className={styles.blogTitle}>
         <Link href="/">
