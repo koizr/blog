@@ -7,6 +7,7 @@ import {
 } from "@/posts";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { StaticPaths } from "@/types";
+import styles from "./post.module.scss";
 
 export default function Post({
   postData,
@@ -15,10 +16,10 @@ export default function Post({
 }): JSX.Element {
   return (
     <Layout title={postData.title}>
-      <article>
-        <h1>{postData.title}</h1>
+      <article className={styles.post}>
+        <h1 className={styles.title}>{postData.title}</h1>
         <div>
-          <div>{postData.date}</div>
+          <div className={styles.date}>{postData.date}</div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>

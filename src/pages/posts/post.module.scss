@@ -1,0 +1,78 @@
+@mixin h {
+    margin-top: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ff6b00;
+}
+
+.post {
+    .title {
+        border: none;
+        margin: 1rem 0 1rem 0;
+    }
+    .date {
+        font-size: 0.9rem;
+        color: #333;
+    }
+    .tags {
+        .tag {
+        }
+    }
+    h1 {
+        @include h;
+        font-weight: normal;
+        border-width: 5px;
+    }
+    h2 {
+        @include h;
+        font-weight: normal;
+        border-width: 3px;
+    }
+    h3 {
+        @include h;
+        border: none;
+    }
+    h4 {
+        @include h;
+        border: none;
+    }
+    h5 {
+        @include h;
+        border: none;
+    }
+    h6 {
+        @include h;
+        border: none;
+    }
+    p {
+        line-height: 1.5rem;
+    }
+    a {
+        color: #ff6b00;
+    }
+    hr {
+        border: none;
+        height: 1px;
+        background: radial-gradient(#b3b3b3, #ffd6c3);
+    }
+    // code block に影響しないように pre で囲まれてない code にだけ適用する
+    :not(pre) > code {
+        font-family: monospace;
+        background-color: #fdf6e3;
+        padding: 2px 4px;
+        color: #268bd2;
+        border-radius: 3px;
+    }
+    em {
+        font-family: Georgia, serif;
+    }
+    ul,
+    ol {
+        padding-left: 1.5rem;
+    }
+    blockquote {
+        margin-left: 0;
+        padding-left: 0.8rem;
+        border-left: 4px solid #aaa;
+        color: #777;
+    }
+}
