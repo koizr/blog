@@ -1,7 +1,6 @@
 @mixin h {
     margin-top: 3rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #ff6b00;
 }
 
 .post {
@@ -11,6 +10,7 @@
     }
     .date {
         font-size: 0.9rem;
+        font-weight: 300;
         color: #333;
     }
     .tags {
@@ -20,34 +20,27 @@
     h1 {
         @include h;
         font-weight: normal;
-        border-width: 5px;
+        border-bottom: 1px solid #ff6b00;
     }
     h2 {
         @include h;
         font-weight: normal;
-        border-width: 3px;
+        border-bottom: 1px solid #eee;
     }
     h3 {
         @include h;
-        border: none;
     }
     h4 {
         @include h;
-        border: none;
     }
     h5 {
         @include h;
-        border: none;
     }
     h6 {
         @include h;
-        border: none;
     }
     p {
         line-height: 1.5rem;
-    }
-    a {
-        color: #ff6b00;
     }
     hr {
         border: none;

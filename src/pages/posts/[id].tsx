@@ -7,6 +7,7 @@ import {
 } from "@/posts";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { StaticPaths } from "@/types";
+import { formatDate } from "@/filters";
 import styles from "./post.module.scss";
 
 export default function Post({
@@ -19,7 +20,9 @@ export default function Post({
       <article className={styles.post}>
         <h1 className={styles.title}>{postData.title}</h1>
         <div>
-          <div className={styles.date}>{postData.date}</div>
+          <div className={styles.date}>
+            updated at {formatDate(postData.date)}
+          </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
