@@ -43,25 +43,23 @@ $side-padding: 0.3rem;
 }
 
 .footer {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 4rem;
     background-color: #fffaed;
     margin-top: auto;
-    .footerLeft {
-        height: 1rem;
-        position: absolute;
-        top: 0;
-        left: 3rem;
-        bottom: 0;
-        margin: auto;
+    @media screen and (max-width: 559px) {
+        padding-left: $side-padding;
+        padding-right: $side-padding;
     }
-    .footerRight {
-        height: 1rem;
-        position: absolute;
-        top: 0;
-        right: 3rem;
-        bottom: 0;
-        margin: auto;
+    @media screen and (min-width: 560px) {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    a {
+        color: inherit;
     }
 }
