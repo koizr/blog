@@ -1,8 +1,9 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { Layout } from "@/components/Layout";
-import { title } from "@/profile";
 import { getSortedPostsData, PostSummary } from "@/posts";
+import { formatDate } from "@/filters";
+import styles from "./index.module.scss";
 
 type Props = {
   allPostsData: PostSummary[];
@@ -11,16 +12,19 @@ type Props = {
 export default function Home({ allPostsData }: Props): JSX.Element {
   return (
     <Layout>
-      <h1>{title}</h1>
-      <ul>
+      <h1 className={styles.h1}>Posts</h1>
+      <div className={styles.posts}>
         {allPostsData.map(({ id, title, date, tags }) => (
-          <li key={id}>
+          <div className={styles.post} key={id}>
             <Link href="/posts/[id]" as={`/posts/${id}`}>
-              <a>{title}</a>
+              <div>
+                <div className={styles.postTitle}>{title}</div>
+                <div className={styles.postDate}>{formatDate(date)}</div>
+              </div>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </Layout>
   );
 }

@@ -22,6 +22,7 @@ export type FrontMatter = {
   title: string;
   date: string;
   tags?: string;
+  description: string;
 };
 
 /**
@@ -32,6 +33,7 @@ export type PostSummary = {
   title: string;
   date: string;
   tags: string[];
+  description: string;
 };
 
 /**
@@ -46,7 +48,7 @@ const splitTagString = (tagString: string): string[] =>
 
 const splitMatterDataTags = (
   matterData: FrontMatter
-): { title: string; date: string; tags: string[] } => ({
+): { title: string; date: string; tags: string[]; description: string } => ({
   ...matterData,
   tags: matterData.tags ? splitTagString(matterData.tags) : [],
 });
