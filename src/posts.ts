@@ -21,7 +21,7 @@ const postsDirectory = path.join(process.cwd(), "posts");
 export type FrontMatter = {
   title: string;
   date: string;
-  tags?: string;
+  tags?: string[];
   description: string;
 };
 
@@ -43,14 +43,11 @@ export type Post = PostSummary & {
   contentHtml: string;
 };
 
-const splitTagString = (tagString: string): string[] =>
-  Array.from(new Set(tagString.split(",").map((tag) => tag.trim())));
+const nub = (tags: string[]): string[] => Array.from(new Set(tags));
 
-const splitMatterDataTags = (
-  matterData: FrontMatter
-): { title: string; date: string; tags: string[]; description: string } => ({
+const init = (matterData: FrontMatter): Omit<PostSummary, "id"> => ({
   ...matterData,
-  tags: matterData.tags ? splitTagString(matterData.tags) : [],
+  tags: nub(matterData.tags) ?? [],
 });
 
 /**
@@ -69,7 +66,7 @@ export const getSortedPostsData = (): PostSummary[] => {
       const matterData = matter(fileContents).data as FrontMatter;
       return {
         id,
-        ...splitMatterDataTags(matterData),
+        ...init(matterData),
       };
     });
   return allPostsDate.sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -119,6 +116,6 @@ export const getPostData = async (id: string): Promise<Post> => {
   return {
     id,
     contentHtml,
-    ...splitMatterDataTags(matterData),
+    ...init(matterData),
   };
 };
