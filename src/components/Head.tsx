@@ -13,7 +13,6 @@ export const Head = ({
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     ></meta>
-    <meta name="theme-color" content="#ffb300"></meta>
     <meta name="description" content={description}></meta>
     <title>{title}</title>
     {/* <link rel="icon" href="/favicon.ico" /> */}
